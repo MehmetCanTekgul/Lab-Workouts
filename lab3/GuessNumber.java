@@ -14,7 +14,24 @@ public class GuessNumber {
 		System.out.print("Can you guess it: ");
 		
 		int guess = reader.nextInt(); //Read the user input
-		
+		int attempts=1;
+		while(guess!=number && guess!=-1){
+
+			System.out.println("Sorry");
+			System.out.println("Type -1 to quit or guess another.");
+			if (number<guess){
+				System.out.println("Your number is Grater Than Mine.");
+			}else{
+				System.out.println("Your Number is Less Than Mine.");
+			}guess= reader.nextInt();
+
+			attempts++;
+
+		}if (number==guess){
+			System.out.println("Congratulations!!!!");
+			System.out.println("You Won After "+ attempts+ " Attempts.");
+		}
+
 		
 		
 		reader.close(); //Close the resource before exiting
