@@ -25,10 +25,22 @@ search: for (int i=0; i< matrix.length; i++) {
 	}
 
 	private static boolean search (int number, int[][]matrix, int row, int col) {
-		
-		
+		if (row < 0 || row >= matrix.length-1 || col < 0 || col >= matrix.length )
 		return false;
+		
 
+		boolean found;
+		if (number==9)
+			found = matrix[row][col] == number;
+		else
+			found= matrix[row][col] == number && (search(number+1,matrix,row+1,col)||
+				search(number+1,matrix,row-1,col)||
+				search(number+1,matrix,row,col+1)||
+				search(number+1,matrix,row,col-1));
+
+		if(found)
+			matrix[row][col] = 9 - matrix[row][col];
+		return found;
 	}
 
 	private static int[][] readMatrix() throws FileNotFoundException{
