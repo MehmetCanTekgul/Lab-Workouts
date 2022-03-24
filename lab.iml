@@ -11,8 +11,8 @@
       <sourceFolder url="file://$MODULE_DIR$/lab3" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lab4" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/lab5" isTestSource="false" />
-      <excludeFolder url="file://$MODULE_DIR$/lab8" />
-      <excludeFolder url="file://$MODULE_DIR$/lab7" />
+      <sourceFolder url="file://$MODULE_DIR$/lab7" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/lab8" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
