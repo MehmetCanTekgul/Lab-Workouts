@@ -9,6 +9,7 @@ public class MyDate {
         this.year=year;
     }
 
+
     public String toString(){
         return year + "-" +( month < 10 ? "0": "")+month+ "-" +( day < 10 ? "0": "")+ day;
     }
@@ -69,7 +70,7 @@ public class MyDate {
     public void incrementMonth(int diff){
         month+=diff;
         int yearDiff = (month-1) / 12 ;
-        year+=yearDiff;
+        //year+=yearDiff;
 
         int newMonth= ((month-1) % 12) +1;
         month = newMonth < 0 ? newMonth + 12 : newMonth;
@@ -104,15 +105,32 @@ public class MyDate {
     }
 
 
-    public boolean isBefore(MyDate anotherDate) {
-        return false;
-    }
 
     public boolean isAfter(MyDate anotherDate) {
-        return false;
+        return !isBefore(anotherDate);
+    }
+
+    public boolean isBefore(MyDate anotherDate) {
+        if (year>anotherDate.year)
+            return false;
+        else if (year==anotherDate.year && month> anotherDate.month)
+            return false;
+        else if (year==anotherDate.year && month== anotherDate.month && day> anotherDate.day)
+            return false;
+        /* else if (year == anotherDate.year && month== anotherDate.month && day ==anotherDate.day)
+            return true;  if we need this exception we can change this line */
+        else
+            return true;
     }
 
     public int dayDifference(MyDate anotherDate) {
-    return 1;
+        int dayDiff=0;
+        dayDiff= (year- anotherDate.year)*365;
+        dayDiff += ( month- anotherDate.month) * maxDays[month-anotherDate.month];
+        if (!inLeapYear() && (month==2 || anotherDate.month==2))
+            dayDiff-=1;
+        dayDiff+= (day - anotherDate.day);
+        return dayDiff;
     }
+
 }
